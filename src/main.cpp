@@ -32,8 +32,12 @@ void pause();
 int main()
 {
     cout<<"Version: "<<version<<endl;
-    cout<<"Make sure that the incoming window is put in the top-left corner!"<<endl;
-    cout<<"Controls:"<<endl;
+    cout<<"pDraw programmed by Austin Jackson in C++"<<endl;
+    cout<<"Find future updates at: srchub.org/u/mac  OR  srchub.org/p/pdraw\n\n"<<endl;
+    cout<<"INSTRUCTIONS:"<<endl;
+    cout<<" - Make sure that the incoming window is put in the top-left corner!"<<endl;
+    cout<<" - Make sure that the graphics window is selected when trying to draw!"<<endl;
+    cout<<"CONTROLS:"<<endl;
     cout<<"    SPACEBAR = Toggle drawing ON or OFF"<<endl;
     cout<<"    UP ARROW = Change brush"<<endl;
     cout<<"    DOWN ARROW = Change brush"<<endl;
