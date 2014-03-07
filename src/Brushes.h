@@ -4,7 +4,7 @@
 //  C++ Header File
 //
 //  Created by Austin Jackson,
-//  Last modified on March 4, 2014.
+//  Last modified on March 6, 2014.
 //
 //  http://www.ruthlessphysics.com/potent/
 //
@@ -62,13 +62,24 @@ void drawPixel(int x, int y)
     bar(x,y,x+1,y+1);
 }
 
-void drawCircle(int x, int y)
+void drawCircle(int x, int y, int radius)
 {
-    circle(x,y,3);
+    circle(x,y,radius);
 }
 
-void drawFilledCircle(int x, int y)
+void drawFilledCircle(int x, int y, int radius)
 {
-    pieslice(x,y,0,360,3);
+    pieslice(x,y,0,360,radius);
 }
 
+void drawSquare(int x, int y,int apothem)
+{
+    rectangle(x-apothem,y-apothem,x+apothem,y+apothem);
+    //It's not *technically* the apothem, but more like a square diameter.
+}
+
+void drawFilledSquare(int x, int y, int apothem)
+{
+    bar(x-apothem,y-apothem,x+apothem,y+apothem);
+    //It's not *technically* the apothem, but more like a square diameter.
+}
