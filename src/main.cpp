@@ -33,8 +33,8 @@ int main()
 {
     cout<<"Version: "<<version<<endl;
     cout<<"pDraw programmed by Austin Jackson in C++"<<endl;
-    cout<<"Find future updates at: srchub.org/u/mac  OR  srchub.org/p/pdraw\n\n"<<endl;
-    cout<<"Last updated: Thursday, March 6, 2014."<<endl;
+    cout<<"Find future updates at: srchub.org/u/mac  OR  srchub.org/p/pdraw"<<endl;
+    cout<<"Last updated: Thursday, March 6, 2014.\n"<<endl;
     cout<<"INSTRUCTIONS:"<<endl;
     cout<<" - Make sure that the incoming window is put in the top-left corner!"<<endl;
     cout<<" - Make sure that the graphics window is selected when trying to draw!"<<endl;
