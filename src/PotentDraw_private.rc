@@ -8,8 +8,8 @@
 // TO CHANGE VERSION INFORMATION, EDIT PROJECT OPTIONS...
 //
 1 VERSIONINFO
-FILEVERSION 0,1,1,54
-PRODUCTVERSION 0,1,1,54
+FILEVERSION 0,1,2,82
+PRODUCTVERSION 0,1,2,82
 FILETYPE VFT_APP
 {
   BLOCK "StringFileInfo"
@@ -18,12 +18,12 @@ FILETYPE VFT_APP
 		 {
 			 VALUE "CompanyName", ""
 			 VALUE "FileVersion", ""
-			 VALUE "FileDescription", ""
+			 VALUE "FileDescription", "pDraw"
 			 VALUE "InternalName", ""
 			 VALUE "LegalCopyright", ""
 			 VALUE "LegalTrademarks", ""
 			 VALUE "OriginalFilename", ""
-			 VALUE "ProductName", "ruthlessphysics.com/potent/"
+			 VALUE "ProductName", "srchub.org/u/mac"
 			 VALUE "ProductVersion", ""
 		 }
 	 }

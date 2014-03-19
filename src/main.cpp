@@ -18,6 +18,9 @@ int keyTimer;
 int currentColor = 0;
 int currentBrush = 0;
 int maxBrushes = 12;
+int windowX = 800;
+int windowY = 800;
+int A=100,B,C,D; //RMVs
 char version[30] = VER_STRING;
 char currentKey;
 bool canDraw = false;
@@ -25,12 +28,15 @@ bool isWindows = true; //CHANGE FOR THE COMPILED OS
 
 POINT mouse;
 
+void setup();
 void drawHUD();
 void clearCanvas();
+void drawHelp();
 void pause();
 
 int main()
 {
+    setup();
     cout<<"Version: "<<version<<endl;
     cout<<"pDraw programmed by Austin Jackson in C++"<<endl;
     cout<<"Find future updates at: srchub.org/u/mac  OR  srchub.org/p/pdraw"<<endl;
@@ -46,25 +52,24 @@ int main()
     cout<<"    RIGHT ARROW = Change drawing color"<<endl;
     cout<<"    ESCAPE = Clear your canvas"<<endl;
     pause();
-    initwindow(800,800,"PotentDraw");
+    initwindow(windowX,windowY,"PotentDraw");
     clearCanvas(); //Prepares the black canvas for drawing on
     setcolor(0);
     setfillstyle(1,0);
-    outstreamxy(0,15);
 
-    for(;;)
+    for(;;) //Foreverloop that updates everything
     {
-		if(kbhit())
+		if(kbhit()) //If the user pressed a key
 		{
-            currentKey = getch();
-            keyTimer = 1;
+            currentKey = getch(); //Get the current key and assign it to currentKey
+            keyTimer = 1; //Resets the keyTimer variable to prevent a key from being pressed twice
         }
-        if(currentKey == KEY_ESC && keyTimer > 0)
+        if(currentKey == KEY_ESC && keyTimer > 0) //If the user pressed ESC, clear the canvas
         {
             cout<<"(KEY_ESC)"<<endl;
             clearCanvas();
         }
-        else if(currentKey == KEY_SPACEBAR && keyTimer > 0)
+        else if(currentKey == KEY_SPACEBAR && keyTimer > 0) //If the user pressed SPACEBAR, toggle canDraw
         {
             cout<<"(KEY_SPACEBAR)"<<endl;
             if(canDraw == false)
@@ -76,7 +81,7 @@ int main()
                 canDraw = false;
             }
         }
-        else if(currentKey == KEY_UP && keyTimer > 0)
+        else if(currentKey == KEY_UP && keyTimer > 0) //If the user pressed UP, cycle down a brush
         {
             cout<<"(KEY_UP)"<<endl;
             if(currentBrush > 0)
@@ -84,7 +89,7 @@ int main()
                 currentBrush--;
             }
         }
-        else if(currentKey == KEY_DOWN && keyTimer > 0)
+        else if(currentKey == KEY_DOWN && keyTimer > 0) //If the user pressed DOWN, cycle up a brush
         {
             cout<<"(KEY_DOWN)"<<endl;
             if(currentBrush < maxBrushes)
@@ -92,7 +97,7 @@ int main()
                 currentBrush++;
             }
         }
-        else if(currentKey == KEY_LEFT && keyTimer > 0)
+        else if(currentKey == KEY_LEFT && keyTimer > 0) //If the user pressed LEFT, cycle down a color
         {
             cout<<"(KEY_LEFT)"<<endl;
             if(currentColor > 0)
@@ -102,7 +107,7 @@ int main()
             setcolor(currentColor);
             setfillstyle(1,currentColor);
         }
-        else if(currentKey == KEY_RIGHT && keyTimer > 0)
+        else if(currentKey == KEY_RIGHT && keyTimer > 0) //If the user pressed RIGHT, cycle up a color
         {
             cout<<"(KEY_RIGHT)"<<endl;
             if(currentColor < 15)
@@ -112,7 +117,7 @@ int main()
             setcolor(currentColor);
             setfillstyle(1,currentColor);
         }
-        if(GetCursorPos(&mouse))
+        if(GetCursorPos(&mouse)) //If GetCursorPos() returns anything, log the coordinates in the console.
         {
             cout<<"("<<mouse.x<<","<<mouse.y<<")"<<endl;
             if(canDraw == true)
@@ -173,6 +178,10 @@ int main()
         }
         keyTimer--;
         drawHUD();
+        if(A > 0)
+        {
+            drawHelp();
+        }
     }
     cout<<"\nTerminating..."<<endl;
     bgiout<<"\nTerminating..."<<endl;
@@ -345,8 +354,29 @@ void clearCanvas()
 {
     cleardevice();
     setfillstyle(1,15);
-    bar(0,0,800,800);
+    bar(0,0,windowX,windowY);
     setfillstyle(1,currentColor);
+}
+
+void drawHelp()
+{
+    setcolor(15);
+    setfillstyle(1,15);
+    outstreamxy(0,windowY-200);
+    bgiout<<" pDraw programmed by Austin Jackson in C++ with WinBGIm "<<endl;
+    bgiout<<" Available at srchub.org/p/pdraw "<<endl;
+    bgiout<<" INSTRUCTIONS: "<<endl;
+    bgiout<<"  - Make sure that the window is put in the top-left corner! "<<endl;
+    bgiout<<"  - Make sure that the graphics window is selected when trying to draw! "<<endl;
+    bgiout<<" CONTROLS: "<<endl;
+    bgiout<<"  - SPACEBAR = Toggle drawing ON or OFF "<<endl;
+    bgiout<<"  - UP ARROW = Change brush "<<endl;
+    bgiout<<"  - DOWN ARROW = Change brush "<<endl;
+    bgiout<<"  - LEFT ARROW = Change drawing color "<<endl;
+    bgiout<<"  - RIGHT ARROW = Change drawing color "<<endl;
+    bgiout<<"  - ESCAPE = Clear your canvas, and TO GET RID OF THIS "<<endl;
+    setcolor(currentColor);
+    A--;
 }
 
 void pause()
@@ -360,4 +390,48 @@ void pause()
 		cout<<"Press any key to continue . . ."<<endl;
 		getchar();
     }
+}
+
+void setup()
+{
+    initwindow(400,250,"Select me!");
+    setcolor(15);
+    setfillstyle(1,15);
+    outtextxy(0,0,"Please move your cursor to the location where");
+    outtextxy(0,20,"the bottom-right corner of the window should be.");
+    outtextxy(0,40,"The incoming graphics window will need to be in the");
+    outtextxy(0,60,"top-left corner of your screen regardless.");
+    outtextxy(0,80,"Once you have picked a spot, press SPACEBAR.");
+    outtextxy(0,120,"Waiting...");
+    setcolor(currentColor);
+    setfillstyle(1,currentColor);
+    
+    bool setupComplete = false;
+    while(setupComplete == false)
+    {
+		if(kbhit()) //If the user pressed a key
+		{
+            currentKey = getch(); //Get the current key and assign it to currentKey
+            keyTimer = 1; //Resets the keyTimer variable to prevent a key from being pressed twice
+        }
+        if(GetCursorPos(&mouse)) //If GetCursorPos() returns anything, log the coordinates in the console.
+        {
+            windowX = mouse.x;
+            windowY = mouse.y;
+        }
+        if(currentKey == KEY_SPACEBAR && keyTimer > 0) //If the user pressed ESC, clear the canvas
+        {
+            setupComplete = true;
+        }
+    }
+    if(windowX < 800)
+    {
+        windowX = 800;
+    }
+    if(windowY < 700)
+    {
+        windowY = 700;
+    }
+    closegraph();
+    currentKey = 0;
 }

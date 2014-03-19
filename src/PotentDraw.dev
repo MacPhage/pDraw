@@ -32,18 +32,18 @@ CompilerSettings=0000000000000000000000
 [VersionInfo]
 Major=0
 Minor=1
-Release=1
-Build=54
+Release=2
+Build=81
 LanguageID=1033
 CharsetID=1252
 CompanyName=
 FileVersion=
-FileDescription=
+FileDescription=pDraw
 InternalName=
 LegalCopyright=
 LegalTrademarks=
 OriginalFilename=
-ProductName=ruthlessphysics.com/potent/
+ProductName=srchub.org/u/mac
 ProductVersion=
 AutoIncBuildNr=1
 
