@@ -6,4 +6,6 @@ A graphics.h painting application
 Potent Draw is an open-source application used to paint
 digitally-primitive drawings using your mouse input and keyboard. 
 
-It natively runs for Windows, but can be run on OS X through WineBottler.
+It natively runs for Windows, but can be run on OS X through [WineBottler](http://winebottler.kronenberg.org/).
+
+[!GIF slideshow of screenshots](http://ruthlessphysics.com/img/pdrawscreenshots.gif)
