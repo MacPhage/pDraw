@@ -8,4 +8,4 @@ digitally-primitive drawings using your mouse input and keyboard.
 
 It natively runs for Windows, but can be run on OS X through [WineBottler](http://winebottler.kronenberg.org/).
 
-[!GIF slideshow of screenshots](http://ruthlessphysics.com/img/pdrawscreenshots.gif)
+![GIF slideshow of screenshots](http://ruthlessphysics.com/img/pdrawscreenshots.gif)
