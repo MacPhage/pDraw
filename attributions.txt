@@ -1,3 +1,0 @@
-Attributions
-- - - - - -
-	* WINBGIm C++ graphics library ("graphics.h")

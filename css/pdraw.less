@@ -1,0 +1,233 @@
+@import url(http://fonts.googleapis.com/css?family=Arimo:400,700,400italic,700italic|Merriweather:300,400);
+
+@native-font: "Helvetica Neue", "Segoe UI", "Roboto", sans-serif;
+@transparent: rgba(0,0,0,0.0);
+@background-top: rgb(85, 85, 85);
+@background-bottom: rgb(0, 0, 0);
+
+body {
+
+    width: 100vw;
+    height: 100vh;
+
+    font-family: @native-font;
+    color: rgb(240, 240, 240);
+    font-size: 12pt;
+    background: #9398ff;
+
+
+
+
+    .bar {
+        height: 4px;
+        background-color: #f2f2f2;
+        margin-top: 10px;
+        margin-bottom: 25px;
+    }
+
+    .main-container {
+        padding: 15px;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+
+        text-shadow: 1px 1px 3px rgb(31, 31, 31);
+
+        .header {
+
+            .hero {
+                text-align: left;
+
+                .title {
+                    display: inline-block;
+                    font-family: "Raleway", @native-font;
+                    font-size: 3em;
+                    font-weight: 200;
+
+                    @media (max-width: 414px) {
+                        img {
+                            width: 100px;
+                            height: 100px;
+                            margin-right: 15px;
+                        }
+                    }
+                    @media (min-width: 415px) {
+                        img {
+                            width: 150px;
+                            height: 150px;
+                            margin-right: 15px;
+                        }
+                    }
+                    img {
+                        -webkit-filter: drop-shadow(0px 1px 2px #373737);
+                        -moz-filter: drop-shadow(0px 1px 2px #373737);
+                        -o-filter: drop-shadow(0px 1px 2px #373737);
+                        filter: drop-shadow(0px 1px 2px #373737);
+                    }
+
+                }
+
+            }
+
+        }
+
+        .content {
+
+            //Markdown stuff
+
+            * {
+                font-family: "Raleway", @native-font;
+                font-size: 1.1em;
+            }
+
+            a {
+                color: #fdcd4c;
+                &:hover, &:active {
+                    color: #e5b83f;
+                }
+            }
+
+            h1,h2,h3,h4,h5,p,ul,ol {
+                margin-top: 0px;
+                margin-left: 10px;
+                margin-right: 10px;
+                margin-bottom: 10px;
+            }
+
+            h1 {
+                font-weight: 700;
+                text-transform: uppercase;
+                font-size: 3em;
+            }
+            h2 {
+                font-weight: 700;
+                text-transform: normal;
+                font-size: 2em;
+                //color: rgb(183, 24, 24);
+            }
+            h3 {
+                font-weight: 700;
+                text-transform: normal;
+                font-size: 1.5em;
+                color: rgb(183, 24, 24);
+            }
+            h4 {
+                font-weight: 700;
+                text-transform: uppercase;
+                margin-bottom: 0;
+                font-size: 1.35em;
+                margin-bottom: 0;
+            }
+            h5 {
+                font-weight: 700;
+                text-transform: uppercase;
+                margin-bottom: 0;
+                font-size: 1.15em;
+            }
+            p {
+                margin-bottom: 20px;
+
+            }
+            hr {
+                height: 1px;
+                background: rgb(95, 95, 95);
+                margin-left: 0;
+                margin-right: 0;
+            }
+            pre {
+                padding: 9.5px;
+                margin: 0 0 10px;
+                font-size: 13px;
+                background-color: #333;
+                word-break: break-all;
+                word-wrap: break-word;
+                color: #f5f5f5;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+
+                code {
+                    font-family: "Menlo", monospace;
+                    line-height: 1.42857143;
+                }
+            }
+            p code {
+                font-family: "Menlo", monospace;
+                line-height: 1.42857143;
+                margin-left: 0;
+                margin-right: 0;
+                //font-size: 1.0em;
+            }
+            p img {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            @media (max-width: 414px) {
+                p img {
+                    max-width: 200px;
+                }
+            }
+            @media (min-width: 415px) {
+                p img {
+                    max-width: 500px;
+                }
+            }
+
+            p * {
+                font-size: 1.0em;
+            }
+        }
+    }
+
+    .footer {
+        display: block;
+        width: 100vw;
+        height: 100px;
+        margin-top: 25px;
+        background: rgba(255,255,255,0.5);
+
+        .wrap {
+            display: table;
+            height: 100px;
+            width: 100vw;
+
+            .box {
+                display: table-cell;
+                vertical-align: middle;
+                text-align: center;
+
+                @media(max-width:415px){
+                    .ob-button {
+                        font-size: 1.0em!important;
+                    }
+                }
+
+
+                .ob-button {
+                    display: inline-block;
+                    padding-top: 5px;
+                    padding-bottom: 5px;
+                    padding-left: 20px;
+                    padding-right: 20px;
+                    border-radius: 20px;
+                    margin-left: 5px;
+                    margin-right: 5px;
+                    background: linear-gradient(rgb(252, 252, 252), rgb(237, 237, 237));
+                    -webkit-filter: drop-shadow(0px 1px 1px rgba(50, 50, 50, 0.85));
+
+                    color: rgb(50,50,50);
+                    font-size: 1.25em;
+
+                    &:active {
+                        background: linear-gradient(rgb(203, 219, 235), rgb(230, 243, 255));
+                        -webkit-filter: drop-shadow(0px 1px 1px rgba(50, 50, 50, 0.45));
+                    }
+                }
+
+            }
+
+        }
+
+    }
+}

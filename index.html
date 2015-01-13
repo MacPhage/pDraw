@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+
+        <title>pDraw</title>
+
+        <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9">
+
+        <!-- JAVASCRIPT -->
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js" ></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+        <script src="js/marked.js"></script>
+        <!-- JAVASCRIPT -->
+
+        <!-- 3RD PARTY CSS -->
+        <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+        <link href='http://fonts.googleapis.com/css?family=Raleway:400,200' rel='stylesheet' type='text/css'>
+        <link href="css/animate.min.css" rel="stylesheet">
+        <!-- 3RD PARTY CSS -->
+
+        <!-- CSS -->
+        <link href="css/pdraw.css" rel="stylesheet" type="text/css">
+        <!-- CSS -->
+
+
+
+    </head>
+
+    <body>
+
+        <div id="background-clip"></div>
+
+        <div class="main-container">
+
+            <div class="header">
+
+                <div class="hero">
+
+                    <span class="title animated bounceInDown"><img src="img/pdraw.png">pDraw</span>
+
+                </div>
+
+            </div>
+
+            <div class="bar animated fadeIn"></div>
+
+            <div id="markdowntarget" class="content animated bounceInUp">
+
+                <!-- I get replaced with stuff -->
+
+            </div>
+
+        </div>
+
+        <div class="footer animated fadeInUp">
+
+            <div class="wrap">
+                <div class="box">
+
+                    <div class="ob-button">
+                        <a href="https://github.com/au5ton/pDraw">Github</a>
+                    </div>
+                    <div class="ob-button">
+                        <a href="http://twitter.com/au5ton">@au5ton</a>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+
+        <script>
+
+            var readMeText;
+            var siteContent = document.getElementById("markdowntarget");
+            var mdSep = "[//]: # (WEB_CONTENT_START)";
+            $.ajax({
+                url : "README.md",
+                success : function(result)
+                {
+                    readMeText = result;
+                    siteContent.innerHTML = marked(readMeText.substring(readMeText.indexOf(mdSep)));
+                },
+                error: function(err)
+                {
+                    siteContent.innerHTML = "Ajax failed to retrieve <a href=\"https://github.com/au5ton/pDraw/blob/gh-pages/README.md\">README.md</a>."
+                }
+            });
+
+        </script>
+
+    </body>
+
+</html>
